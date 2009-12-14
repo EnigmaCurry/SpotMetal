@@ -1,8 +1,9 @@
+import urllib2
+import time
+import json
 import uno
 import unohelper
 from com.enigmacurry.SpotMetal import XSpotMetal
-import urllib2
-import time
 
 class SpotMetalImpl( unohelper.Base, XSpotMetal ):
     def __init__( self, ctx ):
@@ -24,7 +25,7 @@ class SpotMetalImpl( unohelper.Base, XSpotMetal ):
             return self.data[3][bidAsk]
     def spotMetalRefresh(self):
         print("Refreshing spot prices..")
-        self.data = eval(urllib2.urlopen("http://chartseeker.com/quotes/metals.txt").read())
+        self.data = json.loads(urllib2.urlopen("http://chartseeker.com/quotes/metals.txt").read())
         print("Done.")
         self.last_grab = time.time()
         
