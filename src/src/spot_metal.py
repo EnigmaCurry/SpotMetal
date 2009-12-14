@@ -18,6 +18,10 @@ class SpotMetalImpl( unohelper.Base, XSpotMetal ):
             return self.data[0][bidAsk]
         if metal.lower() == "silver":
             return self.data[1][bidAsk]
+        if metal.lower() == "platinum":
+            return self.data[2][bidAsk]
+        if metal.lower() == "palladium":
+            return self.data[3][bidAsk]
     def spotMetalRefresh(self):
         print("Refreshing spot prices..")
         self.data = eval(urllib2.urlopen("http://chartseeker.com/quotes/metals.txt").read())
