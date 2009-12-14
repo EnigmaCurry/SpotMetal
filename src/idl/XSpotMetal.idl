@@ -1,0 +1,11 @@
+#include <com/sun/star/uno/XInterface.idl>
+
+module com { module enigmacurry { module SpotMetal {
+
+    interface XSpotMetal
+    {
+      string spotMetal( [in] string metal, [in] string bidAsk );
+      string spotMetalRefresh();
+    };
+
+}; }; };
